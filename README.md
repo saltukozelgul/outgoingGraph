@@ -1,2 +1,2 @@
 # outgoingGraph
-This is an basic web app that show my monthly outgoings
+This is an basic web app with node.JS and Chart.JS that show my monthly outgoings
