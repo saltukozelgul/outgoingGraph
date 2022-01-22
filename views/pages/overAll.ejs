@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Outcome Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href= "./styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="graph">
+        <canvas id="myChart" ></canvas>
+    </div>
+    <div class="buttons">
+      <button class="btn-hover color-3" type="button"><a href="/">Main Graph</a></button>
+
+    </div>
+</body>
+
+
+<script>
+  const ctx = document.getElementById('myChart');
+  var data = [<%- data %>]
+  const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ['Gelen Para', 'Giden Para', 'Net'],
+          datasets: [{
+              label: 'Değişim Miktarı (₺)',
+              data: data,
+              backgroundColor: [
+                  'rgba(75, 192, 192, 0.2)', // Green
+                  'rgba(255, 99, 132, 0.2)', // Red
+                  'rgba(255, 159, 64, 0.2)' // Orange
+              ],
+              borderColor: [
+                  'rgba(75, 192, 192, 1)', // Green
+                  'rgba(255, 99, 132, 1)', // Red
+                  'rgba(255, 159, 64, 1)'// Orange
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Outcome Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href= "./styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="graph">
+        <canvas id="myChart" ></canvas>
+    </div>
+    <div class="buttons">
+      <button class="btn-hover color-3" type="button"><a href="/overAll">Overall Graph</a></button>
+      <button class="btn-hover color-9" style="width:50%" type="button"><a href="#"><%- dates %> tarihleri arasını kapsar</a></button>
+    </div>
+</body>
+
+
+<script>
+  const ctx = document.getElementById('myChart');
+  var data = [<%- data %>]
+  const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ['Yemeksepeti', 'Getir', 'Trendyol', 'Kredi Kartı', 'Fatura', 'Öğrenim Kredisi','Sınıflandırılmamış'],
+          datasets: [{
+              label: 'Değişim Miktarı (₺)',
+              data: data,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)', // Red
+                  'rgba(54, 162, 235, 0.2)', // Blue
+                  'rgba(255, 206, 86, 0.2)', // Yellow
+                  'rgba(75, 192, 192, 0.2)', // Green
+                  'rgba(153, 102, 255, 0.2)', // Purple
+                  'rgba(255, 159, 64, 0.2)', // Orange
+                  'rgba(54, 54, 192, 0.2)' // Random
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)', // Red
+                  'rgba(54, 162, 235, 1)', // Blue
+                  'rgba(255, 206, 86, 1)', // Yellow
+                  'rgba(75, 192, 192, 1)', // Green
+                  'rgba(153, 102, 255, 1)', // Purple
+                  'rgba(255, 159, 64, 1)',// Orange
+                  'rgba(54, 54, 192, 1)' // Random
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+</script>
+</html>
